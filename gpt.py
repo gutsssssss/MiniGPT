@@ -11,7 +11,7 @@ matplotlib.use('TkAgg')
 
 torch.manual_seed(12046)
 
-# 一些超参数
+# 超参数
 emb_size = 128
 head_size = 8
 n_layer = 12
@@ -19,12 +19,8 @@ sequence_len = 64
 learning_rate = 1e-3
 eval_iters = 20
 batch_size = 100
-# 如果有GPU，该脚本将使用GPU进行计算
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
-
-# 计算设备为V100 16G
-# 如果使用CPU，需要非常长的时间，建议减少模型规模来加快速度（比如n_layer）
 
 def attention(query, key, value, dropout, mask=None):
     '''
